@@ -963,11 +963,17 @@
         widthHeightPadding = 0;
       }
 
+      var top = elementPosition.getBoundingClientRect().top ? elementPosition.getBoundingClientRect().top : elementPosition.top
+      var left = elementPosition.getBoundingClientRect().left ? elementPosition.getBoundingClientRect().left : elementPosition.left
+
+      console.log('top: ', top);
+      console.log('left: ', left);
       //set new position to helper layer
       helperLayer.style.cssText = 'width: ' + (elementPosition.width  + widthHeightPadding)  + 'px; ' +
                                         'height:' + (elementPosition.height + widthHeightPadding)  + 'px; ' +
-                                        'top:'    + (elementPosition.getBoundingClientRect().top    - widthHeightPadding / 2)   + 'px;' +
-                                        'left: '  + (elementPosition.getBoundingClientRect().left   - widthHeightPadding / 2)   + 'px;';
+                                        'top:'    + (top    - widthHeightPadding / 2)   + 'px;' +
+                                        'left: '  + (left   - widthHeightPadding / 2)   + 'px;';
+
 
     }
   }
